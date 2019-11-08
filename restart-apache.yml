@@ -1,6 +1,6 @@
 ---
 - name: Restart Apache web server
-  hosts: all
+  hosts: appserver
   become: yes
   tasks:
 

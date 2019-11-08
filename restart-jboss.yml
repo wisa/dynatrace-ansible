@@ -1,6 +1,6 @@
 ---
 - name: Restart Jboss service 
-  hosts: all
+  hosts: appserver2
   become: yes
   tasks:
 
