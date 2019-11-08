@@ -1,6 +1,6 @@
 ---
 - name: Restart Jboss service 
-  hosts: appserver2
+  hosts: appserver2.wisa.mylab
   become: yes
   tasks:
 

@@ -1,6 +1,6 @@
 ---
 - name: Restart Apache web server
-  hosts: appserver
+  hosts: appserver.wisa.mylab
   become: yes
   tasks:
 
