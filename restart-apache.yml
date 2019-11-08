@@ -1,0 +1,11 @@
+---
+- name: Restart Apache web server
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Restart Httpd
+    service:
+      name: httpd.service
+      state: restarted
+  

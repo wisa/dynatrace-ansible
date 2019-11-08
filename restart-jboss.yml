@@ -1,0 +1,11 @@
+---
+- name: Restart Jboss service 
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Restart Jboss
+    service:
+      name: eap7-standalone.service
+      state: restarted
+  
