@@ -1,5 +1,5 @@
 ---
-  - name: Deploy additional worker node VM
+  - name: Provisioning VM on RHV
     hosts: rhvm.wisa.mylab
     gather_facts: false
     become: true
@@ -11,33 +11,17 @@
           username: "{{ OVIRT_USER }}"
           password: "{{ OVIRT_PASS }}"
 
-      - name: Create disk for new Worker
-        ovirt_disk:
-          auth: "{{ ovirt_auth }}"
-          activate: yes
-          bootable: yes
-          name: "{{ NEW_NODE }}_disk"
-          size: "{{ DISK_SIZE }}GiB"
-          format: cow
-          interface: virtio
-          storage_domain: hosted_storage
-
-      - name: Deploy new Worker node vm and running it
+      - name: Deploy VM and running it
         ovirt_vm:
           auth: "{{ ovirt_auth }}"
           state: running
-          boot_menu: yes
-          boot_devices: hd
-          kernel_params_persist: no
           cluster: Default
-          name: "{{ NEW_NODE }}"
-          memory: "{{ NEW_MEM }}GiB"
-          cpu_cores: "{{ NEW_CPU }}"
+          name: myvm
+          memory: 4 GiB
+          cpu_cores: 2
           type: server
           operating_system: other_linux
-          disks:
-            - name: "{{ NEW_NODE }}_disk"
-              bootable: True
           nics:
           - name: nic1
             profile_name: ovirtmgmt
+          template: Centos7-Template
