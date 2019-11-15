@@ -25,3 +25,8 @@
           - name: nic1
             profile_name: ovirtmgmt
           template: Centos7-Template
+
+      - name: Pause for 30 second before update the inventory
+        pause:
+          delta: 30
+

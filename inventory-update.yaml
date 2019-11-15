@@ -1,0 +1,18 @@
+---
+- name: RHV Inventory update
+  hosts: localhost
+  become: true
+  tasks:
+
+  - name: inventory update
+    tower_inventory_source:
+      tower_host: https://tower.wisa.mylab/
+      tower_username: admin
+      tower_password: "r3dh4t1!"
+      name: "RHV VM List"
+      inventory: "RHV Instance"
+      source: rhv
+      update_on_launch: true
+      overwrite: true
+      state: present
+      validate_certs: false
