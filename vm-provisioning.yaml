@@ -28,5 +28,5 @@
 
       - name: Pause for 60 second before update the inventory
         pause:
-          minutes: 1
+          minutes: 2
 
