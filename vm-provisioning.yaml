@@ -16,9 +16,9 @@
           auth: "{{ ovirt_auth }}"
           state: running
           cluster: Default
-          name: myvm
-          memory: 4 GiB
-          cpu_cores: 2
+          name: "{{ VM_NAME }}"
+          memory: "{{ MEM_SIZE }}GiB"
+          cpu_cores: "{{ CPU_SIZE }}"
           type: server
           operating_system: other_linux
           nics:
