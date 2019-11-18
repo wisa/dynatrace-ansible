@@ -28,7 +28,7 @@
 
       - name: Pause for 60 second before restarting the VM
         pause:
-          minutes: 2
+          minutes: 1
           
       - name: Stopped the deployed VM
         ovirt_vm:
