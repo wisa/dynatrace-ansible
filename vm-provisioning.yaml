@@ -1,7 +1,7 @@
 ---
   - name: Provisioning VM on RHV
     hosts: rhvm.wisa.mylab
-    gather_facts: false
+    gather_facts: true
     become: true
     vars_files: secret.yaml
     tasks:
@@ -32,12 +32,14 @@
           
       - name: Stopped the deployed VM
         ovirt_vm:
+          auth: "{{ ovirt_auth }}"
           state: stopped
           name: "{{ VM_NAME }}"
           cluster: Default
 
       - name: Stopped the deployed VM
         ovirt_vm:
+          auth: "{{ ovirt_auth }}"
           state: running
           name: "{{ VM_NAME }}"
           cluster: Default
