@@ -37,7 +37,7 @@
           name: "{{ VM_NAME }}"
           cluster: Default
 
-      - name: Stopped the deployed VM
+      - name: Running the deployed VM
         ovirt_vm:
           auth: "{{ ovirt_auth }}"
           state: running
