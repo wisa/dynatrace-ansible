@@ -26,7 +26,22 @@
             profile_name: ovirtmgmt
           template: Centos7-Template
 
-      - name: Pause for 120 second before update the inventory
+      - name: Pause for 60 second before restarting the VM
         pause:
           minutes: 2
+          
+      - name: Stopped the deployed VM
+        ovirt_vm:
+          state: stopped
+          name: "{{ VM_NAME }}"
+          cluster: Default
 
+      - name: Stopped the deployed VM
+        ovirt_vm:
+          state: running
+          name: "{{ VM_NAME }}"
+          cluster: Default
+          
+      - name: Pause for 60 second before update the inventory
+        pause:
+          minutes: 1
