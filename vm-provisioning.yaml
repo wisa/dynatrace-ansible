@@ -26,7 +26,7 @@
             profile_name: ovirtmgmt
           template: Centos7-Template
 
-      - name: Pause for 60 second before update the inventory
+      - name: Pause for 120 second before update the inventory
         pause:
           minutes: 2
 
